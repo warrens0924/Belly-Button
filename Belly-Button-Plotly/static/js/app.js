@@ -2,15 +2,15 @@ function getPlot(id) {
     
     // get the data from the json file
     d3.json("data/samples.json").then((data)=> {
-        console.log(data)
+        //console.log(data)
 
         var wfreq = data.metadata.map(d => d.wfreq)
-        console.log(`Washing Freq: ${wfreq}`)
+        //console.log(`Washing Freq: ${wfreq}`)
 
         // filter sample values by id 
         var samples = data.samples.filter(s => s.id.toString() === id)[0];
 
-        console.log(samples);
+        //console.log(samples);
 
         // get only top 10 sample values to plot and reverse for the plotly
         var sampleValues = samples.sample_values.slice(0, 10).reverse();
@@ -21,13 +21,13 @@ function getPlot(id) {
         // get the otu id's to the desired form for the plot
         var idOtu = idValues.map(d => "OTU " + d)
 
-        console.log(`OTU IDS: ${idOtu}`)
+        //console.log(`OTU IDS: ${idOtu}`)
 
         // get the top 10 labels for the plot
         var labels = samples.otu_labels.slice(0, 10);
 
-        console.log(`Sample Values: ${sampleValues}`)
-        console.log(`Id Values: ${idValues}`)
+        //console.log(`Sample Values: ${sampleValues}`)
+        //console.log(`Id Values: ${idValues}`)
 
         
         // create trace variable for the plot
@@ -59,7 +59,7 @@ function getPlot(id) {
         // create the bar plot
         Plotly.newPlot("bar", data, layout);
 
-        console.log(`ID: ${samples.otu_ids}`)
+        //console.log(`ID: ${samples.otu_ids}`)
         
         // create the trace for the bubble chart
         var trace1 = {
