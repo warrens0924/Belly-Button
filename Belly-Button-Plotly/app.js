@@ -51,7 +51,13 @@ function getdata(sample) {
       ];
       var barLayout = {
         title: "Top 10 Bacteria Cultures Found",
-        margin: { t: 30, l: 150 }
+        margin: {
+            l: 100,
+            r: 100,
+            t: 100,
+            b: 30
+        }
+
       };
       Plotly.newPlot("bar", barData, barLayout);
     });
@@ -67,13 +73,21 @@ function getdata(sample) {
           .property("value", sample);
       });
       var firstSample = sampleNames[0];
+      //var Metadata = data.Metadata;
       buildCharts(firstSample);
-      //buildMetadata = buildMetadata(firstSample);
+      //buildMetadata(firstSample);
+      getdata(firstSample);
+      //getDemoData(resultSample)
+      //var resultSample = sampleName[0];
+      //getData(resultSample);
+      //getDemoData(resultSample);
+
+
     });
   }
   function optionChanged(newSample) {
     buildCharts(newSample);
-    buildMetadata(newSample);
+    getdata(newSample);
   }
   init();
   
