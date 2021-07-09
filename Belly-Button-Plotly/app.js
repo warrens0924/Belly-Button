@@ -90,10 +90,3 @@ function getdata(sample) {
     getdata(newSample);
   }
   init();
-  
-  
-  
-  
-  
-  
-  
